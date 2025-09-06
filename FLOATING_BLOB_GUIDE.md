@@ -1,6 +1,6 @@
-# 🎭 Pi AI Floating Blob Guide
+# 🎭 Vexa AI Floating Blob Guide
 
-Your Pi AI assistant now has **two amazing floating modes**:
+Your Vexa AI assistant now has **two amazing floating modes**:
 
 ## 🌐 **Browser Mode: Cross-Tab Floating**
 *Blob syncs across all browser tabs*
@@ -208,4 +208,4 @@ Want to improve the floating blob? Submit PRs for:
 
 ---
 
-*🎭 Your Pi AI assistant is now truly omnipresent! Whether floating across browser tabs or your entire desktop, Pi is always ready to help.* 
+*🎭 Your Vexa AI assistant is now truly omnipresent! Whether floating across browser tabs or your entire desktop, Vexa is always ready to help.* 

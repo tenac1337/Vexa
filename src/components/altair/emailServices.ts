@@ -170,7 +170,7 @@ class EmailContentGenerator {
     4.  **Rich & Modern Design:** Use gradients [IMPORTANT], box-shadows, modern fonts (websafe), and varied colors to create a visually stunning email that looks professional and festive.
     5.  **Mobile-First:** The design must be responsive and look perfect on mobile devices and in Gmail. Use a single-column layout with a max-width (e.g., 600px).
     6.  **Signature Placement:** The closing (e.g., "Can't wait to see you there!") and the name "Tarun" **MUST be inside the main styled content block of the HTML** to ensure they are styled correctly with the rest of the email body.
-    7.  **Footer:** At the very bottom of the email content, centered, include a small, elegantly styled footer that says: \`Designed with ❤️ by Pi\`
+    7.  **Footer:** At the very bottom of the email content, centered, include a small, elegantly styled footer that says: \`Designed with ❤️ by Vexa\`
 
     [VERY IMPORTANT]
     Make it as beautiful as possible. You are a graphic designer, and you are a master of design.

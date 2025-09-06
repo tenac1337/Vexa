@@ -167,7 +167,7 @@ function createMainWindow() {
       sandbox: false // Disable sandbox to allow OAuth popups
     },
     icon: path.join(__dirname, 'favicon.ico'), // Add app icon
-    title: 'Pi AI Assistant'
+    title: 'Vexa AI Assistant'
   });
 
   // Load the app

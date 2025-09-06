@@ -82,7 +82,7 @@ export const BlobCapabilitiesDemo: React.FC = () => {
       background: 'linear-gradient(135deg, rgba(255, 140, 66, 0.1) 0%, rgba(255, 107, 26, 0.05) 100%)',
     }}>
       <h3 style={{ color: '#FF8C42', marginBottom: '16px' }}>
-        {getEnvironmentIcon(capabilities.environment)} Pi Blob Capabilities
+        {getEnvironmentIcon(capabilities.environment)} Vexa Blob Capabilities
       </h3>
       
       <div style={{ marginBottom: '16px' }}>

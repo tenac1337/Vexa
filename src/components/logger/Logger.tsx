@@ -17,7 +17,7 @@
 import "./logger.scss";
 
 import cn from "classnames";
-import { memo, ReactNode } from "react";
+import { memo } from "react";
 import { useLoggerStore } from "../../lib/store-logger";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { vs2015 as dark } from "react-syntax-highlighter/dist/esm/styles/hljs";

@@ -1231,7 +1231,7 @@ app.post('/api/system-typing', async (req, res) => {
       .map(row => `${row.speaker}: ${row.content}`).join('\n');
     
     // STEP 3: Build enhanced prompt with screen context integration
-    const contextualPrompt = `You are Pi, Tarun's AI assistant. Generate ${content_type} content that will be typed directly where his cursor is positioned.
+    const contextualPrompt = `You are Vexa, Tarun's AI assistant. Generate ${content_type} content that will be typed directly where his cursor is positioned.
 
 CRITICAL: Generate ONLY the final content to be typed. No explanations, no quotes around the content, no prefixes like "Here's a tweet:" - just the raw content.
 

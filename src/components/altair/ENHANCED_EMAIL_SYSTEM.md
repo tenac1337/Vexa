@@ -22,7 +22,7 @@ The Enhanced Email System transforms how emails are composed and sent by using *
 - Proper email etiquette and formatting
 - Appropriate greetings and closings
 - Clear, actionable content
-- Consistent Pi branding signature
+- Consistent Vexa branding signature
 
 ## How It Works
 
@@ -88,7 +88,7 @@ Could you please confirm your availability for next week to finalize the project
 Best regards,
 [Your Name]
 
-Sent from Pi, Created by Tarun and Sanjay Sai
+Sent from Vexa, Created by Tarun and Sanjay Sai
 ```
 
 ### Example 2: Friendly Introduction
@@ -119,7 +119,7 @@ Please feel free to stop by my desk or send me a message if you have any questio
 Looking forward to working with you all,
 [Your Name]
 
-Sent from Pi, Created by Tarun and Sanjay Sai
+Sent from Vexa, Created by Tarun and Sanjay Sai
 ```
 
 ## Function Parameters

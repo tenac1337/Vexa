@@ -141,4 +141,4 @@ While the API endpoints exist for development and debugging purposes, **the prim
 
 This makes screen context invisible to the user while providing maximum contextual intelligence. 
 
-The enhanced screen context system transforms Pi from a simple assistant into a contextually-aware companion that understands your digital environment and can provide truly intelligent, situational assistance. 
+The enhanced screen context system transforms Vexa from a simple assistant into a contextually-aware companion that understands your digital environment and can provide truly intelligent, situational assistance. 
