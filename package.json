@@ -1,17 +1,79 @@
 {
-  "name": "vexa",
-  "version": "1.0.0",
+  "name": "noise_maker",
+  "version": "0.1.0",
   "private": true,
+  "homepage": "./",
+  "main": "public/electron.js",
   "dependencies": {
+    "@google/genai": "^0.14.1",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.68",
+    "@types/react": "^18.2.42",
+    "@types/react-dom": "^18.2.17",
+    "classnames": "^2.5.1",
+    "eventemitter3": "^5.0.1",
+    "lodash": "^4.17.21",
+    "papaparse": "^5.5.3",
+    "pdfjs-dist": "^5.3.31",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "^4.9.5"
+    "react-icons": "^5.5.0",
+    "react-scripts": "5.0.1",
+    "react-select": "^5.10.1",
+    "react-syntax-highlighter": "^15.6.1",
+    "sass": "^1.69.5",
+    "sqlite3": "^5.1.7",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4",
+    "zustand": "^5.0.5"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.17",
+    "@types/papaparse": "^5.3.16",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "concurrently": "^8.2.2",
+    "electron": "^28.3.3",
+    "electron-builder": "^24.13.3",
+    "electron-is-dev": "^3.0.1",
+    "electron-reload": "^2.0.0-alpha.1",
+    "wait-on": "^7.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:network": "HOST=0.0.0.0 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron-dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron . --no-sandbox\"",
+    "system-blob": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron . --no-sandbox\"",
+    "electron-pack": "npm run build && electron-builder",
+    "dist": "npm run build && electron-builder --publish=never"
+  },
+  "build": {
+    "appId": "com.pi.noise-maker",
+    "productName": "Pi AI Assistant",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "build/**/*",
+      "public/electron.js",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
   },
   "eslintConfig": {
     "extends": [

@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Kiyo",
+    "email": "teendifferent7@gmail.com",
+    "relationship": "friend"
+  },
+  {
+    "name": "Sanjay",
+    "email": "me@sanjaysai.com",
+    "relationship": "friend"
+  },
+  {
+    "name": "Alina",
+    "email": "prof.alina@outlook.com",
+    "relationship": "Research Professor"
+  },
+  { 
+    "name": "Sai",
+    "email": "sai@gmail.com",
+    "relationship": "Research Partner"
+  }
+  
+
+]

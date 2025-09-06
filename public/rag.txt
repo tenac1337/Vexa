@@ -1,0 +1,20 @@
+Language Models, Finetuning, and RLHF: A Concise Overview
+Today, we're looking at three pivotal concepts driving modern AI: Language Models (LMs), Parameter-Efficient Finetuning (PEFT), and Reinforcement Learning with Human Feedback (RLHF).
+
+First, Language Models are powerful statistical models trained on massive text datasets to predict the next word in a sequence. This fundamental capability allows them to generate coherent text, summarize information, translate languages, and even write code. Think of them as highly advanced autocomplete systems that have learned the intricacies of human language.
+
+Next, since training or fully finetuning these enormous LMs from scratch is prohibitively expensive, we turn to Parameter-Efficient Finetuning (PEFT). PEFT methods, like LoRA or adapters, allow us to adapt a pre-trained LM to specific tasks or domains by modifying only a tiny fraction of its parameters. This dramatically reduces computational cost and time, making powerful LMs more accessible and adaptable for diverse applications.
+
+Finally, to ensure LMs behave in a way that's helpful, honest, and harmless, we use Reinforcement Learning with Human Feedback (RLHF). LMs, by default, can generate errors or undesirable content. RLHF addresses this by using human ratings of LM outputs to train a "reward model." This reward model then guides the LM, through reinforcement learning, to generate responses that align with human preferences and values. It's the critical step that makes LMs truly useful and safe for real-world interaction.
+
+In essence, LMs provide the core intelligence, PEFT makes them adaptable and affordable, and RLHF aligns their behavior with human expectations. Together, these three areas are reshaping what's possible in artificial intelligence.
+
+
+
+Girlfrined Context
+
+Sam - Hey Tarun!
+Tarun - Hey Sam!
+Sam - Heyy look at that squirrel, that's soo cute isn't it?
+Tarun - Yeah it is..
+Sam - I love to have one as a pet, squirrel's are soo cute, i love them more than any animals.

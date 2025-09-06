@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"
+      rel="stylesheet"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Multimodal Live - Console</title>
+  </head>
+
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    
+    <!-- Enhanced transparency for floating blob window -->
+    <script>
+      // Enhanced transparency detection and application for floating blob route
+      function applyFloatingBlobTransparency() {
+        if (window.location.pathname === '/floating-blob') {
+          console.log('🔍 Floating blob route detected - applying transparency...');
+          
+          // Step 1: Apply immediate transparency to prevent any white flash
+          document.documentElement.style.cssText = 'background: transparent !important; background-color: transparent !important;';
+          document.body.style.cssText = 'background: transparent !important; background-color: transparent !important; margin: 0 !important; padding: 0 !important;';
+          
+          // Step 2: Create and inject a comprehensive CSS override
+          const transparencyStyle = document.createElement('style');
+          transparencyStyle.id = 'floating-blob-transparency-override';
+          transparencyStyle.innerHTML = `
+            /* Complete transparency reset for floating blob */
+            * {
+              background: transparent !important;
+              background-color: transparent !important;
+            }
+            
+            html, body, #root, .App {
+              background: transparent !important;
+              background-color: transparent !important;
+              margin: 0 !important;
+              padding: 0 !important;
+            }
+            
+            /* Override any existing background variables */
+            :root {
+              --background: transparent !important;
+              --Neutral-30: transparent !important;
+              --gray-900: transparent !important;
+            }
+            
+            /* Force transparency on all potential container classes */
+            .floating-blob-app,
+            .floating-blob-window,
+            div[style*="background"] {
+              background: transparent !important;
+              background-color: transparent !important;
+            }
+          `;
+          
+          // Insert the style as the first element in head to ensure highest precedence
+          document.head.insertBefore(transparencyStyle, document.head.firstChild);
+          
+          console.log('✅ Floating blob transparency applied');
+        }
+      }
+      
+      // Apply immediately if DOM is ready, otherwise wait for it
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', applyFloatingBlobTransparency);
+      } else {
+        applyFloatingBlobTransparency();
+      }
+      
+      // Also apply on window load as a fallback
+      window.addEventListener('load', applyFloatingBlobTransparency);
+    </script>
+    
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
