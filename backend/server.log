@@ -1,0 +1,18 @@
+NotionClient initialized (placeholder).
+Backend server running on port 3001
+Connected to the SQLite database.
+Connected to the conversation SQLite database.
+🎯 System typing request: tweet (enthusiastic tone, short length)
+📱 Capturing screen context for enhanced typing...
+🔍 Starting OCR screen capture...
+Estimating resolution as 146
+📱 Screen context stored with ID: 13
+🔍 Debug - Session ID: session_1750059354635_wo27oromi
+🔍 Debug - Found 1 conversation turns
+🔍 Debug - Recent user query: "hi"
+🔍 Debug - Background context (first 200 chars): "user: hi..."
+🔍 Debug - Context hint: "Steve Jobs quote on creativity and feeling guilty"
+🔍 Debug - Content type: tweet
+✅ Generated contextual content for Brave: Hi everyone! 👋  Just checking in.  #hellotwitter #goodvibes
+...
+✅ Successfully typed content using temp file method in Brave
