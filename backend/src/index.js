@@ -57,6 +57,9 @@ const notionConfig = {
 
 const md = new MarkdownIt();
 
+const setupVideoAgent = require('./videoAgent');
+setupVideoAgent(app, server);
+
 function tokensToRichText(tokens) {
     const richTexts = [];
     let stack = []; // To manage nested styles like bold within italics
