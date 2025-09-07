@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WebSocket Microphone Client</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    #transcript, #analysis { margin-top: 20px; font-size: 1.2em; }
+    #frame-img { margin-top: 20px; max-width: 100%; border: 2px solid #ccc; }
+    #status { color: green; margin-bottom: 10px; }
+    button { padding: 10px 20px; font-size: 1em; }
+  </style>
+</head>
+<body>
+  <h1>Microphone WebSocket Client</h1>
+  <div id="status">Disconnected</div>
+  <button id="start-btn">Start Recording</button>
+  <button id="stop-btn" disabled>Stop Recording</button>
+  <div id="transcript"></div>
+  <div id="analysis"></div>
+  <img id="frame-img" src="" alt="Latest Frame" />
+  <script>
+    // === CONFIG ===
+    const WS_URL = "ws://localhost:4000";
+    const CHUNK_DURATION_MS = 3000; // 3 seconds for best STT performance
+
+    // === UI ELEMENTS ===
+    const statusEl = document.getElementById("status");
+    const startBtn = document.getElementById("start-btn");
+    const stopBtn = document.getElementById("stop-btn");
+    const transcriptEl = document.getElementById("transcript");
+    const analysisEl = document.getElementById("analysis");
+    const frameImg = document.getElementById("frame-img");
+
+    // === STATE ===
+    let ws = null;
+    let mediaRecorder = null;
+    let recording = false;
+
+    // === CONNECT TO WEBSOCKET ===
+    function connectWS() {
+      ws = new WebSocket(WS_URL);
+      ws.onopen = () => {
+        statusEl.textContent = "Connected to server";
+        statusEl.style.color = "green";
+        startBtn.disabled = false;
+      };
+      ws.onclose = () => {
+        statusEl.textContent = "Disconnected";
+        statusEl.style.color = "red";
+        startBtn.disabled = true;
+        stopBtn.disabled = true;
+      };
+      ws.onmessage = (event) => {
+        try {
+          const data = JSON.parse(event.data);
+          if (data.transcript !== undefined) {
+            transcriptEl.textContent = "Transcript: " + data.transcript;
+          }
+          if (data.analysis !== undefined) {
+            analysisEl.textContent = "Analysis: " + data.analysis;
+          }
+          if (data.frame) {
+            frameImg.src = data.frame;
+          }
+        } catch (err) {
+          console.error("Error parsing WS message:", err);
+        }
+      };
+    }
+    connectWS();
+
+    // === MICROPHONE RECORDING ===
+    startBtn.onclick = async () => {
+      if (recording) return;
+      transcriptEl.textContent = "";
+      analysisEl.textContent = "";
+      // Request mic access
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream, { mimeType: "audio/webm;codecs=opus" });
+        mediaRecorder.ondataavailable = (e) => {
+          if (e.data && e.data.size > 0 && ws && ws.readyState === WebSocket.OPEN) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+              // Send base64 DataURL to server
+              ws.send(JSON.stringify({ audio: reader.result }));
+            };
+            reader.readAsDataURL(e.data); // Will produce a data:audio/webm;codecs=opus;base64,...
+          }
+        };
+        mediaRecorder.onstop = () => {
+          stream.getTracks().forEach(track => track.stop());
+        };
+        mediaRecorder.start(CHUNK_DURATION_MS); // Send longer chunks for better transcription
+        recording = true;
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+        statusEl.textContent = "Recording...";
+        statusEl.style.color = "blue";
+      } catch (err) {
+        alert("Mic access denied or error: " + err.message);
+      }
+    };
+
+    stopBtn.onclick = () => {
+      if (mediaRecorder && recording) {
+        mediaRecorder.stop();
+        recording = false;
+        startBtn.disabled = false;
+        stopBtn.disabled = true;
+        statusEl.textContent = "Stopped recording";
+        statusEl.style.color = "green";
+      }
+    };
+
+    // === AUTO-RECONNECT LOGIC ===
+    setInterval(() => {
+      if (!ws || ws.readyState === WebSocket.CLOSED) {
+        connectWS();
+      }
+    }, 5000);
+  </script>
+</body>
+</html>
